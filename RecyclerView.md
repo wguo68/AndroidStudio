@@ -133,3 +133,10 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
         return wordList.size();
     }
 ```
+
+**修改MAinActivity的OnCreate函数**，添加：
+```java
+        RecyclerView recyclerView = findViewById(R.id.recyclerview);
+        recyclerView.setAdapter(new WordListAdapter(this,wordList));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+```
