@@ -62,6 +62,41 @@ public void onCreate(SQLiteDatabase db) {
         }
     }
 ```
+添加insert(String word)
+```
+public long insert(String word){
+        long newId = 0;
+        ContentValues values = new ContentValues();
+        values.put(KEY_WORD, word);
+        try {
+            if (mWritableDB == null) {
+                mWritableDB = getWritableDatabase();
+            }
+            newId = mWritableDB.insert(WORD_LIST_TABLE, null, values);
+        } catch (Exception e) {
+            Log.d(TAG, "INSERT EXCEPTION! " + e.getMessage());
+        }
+        return newId;
+    }
+```
+
+添加count()方法
+```
+public long count(){
+        if (mReadableDB == null) {
+            mReadableDB = getReadableDatabase();
+        }
+        return DatabaseUtils.queryNumEntries(mReadableDB, WORD_LIST_TABLE);
+    }
+```
+并修改实现WordListAdapter的getItemCount()
+```
+   @Override
+    public int getItemCount() {
+       // return wordList.size();
+        return (int) mDB.count();
+    }
+```
 
 3. 创建WordItem类，用alt+insert生成getter和setter方法
 ```
