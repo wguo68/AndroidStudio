@@ -93,3 +93,17 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
 }
 ```
 将onCreateViewHolder和onBindViewHolder都引用WordViewHolder
+
+** 3. Create the view holder **
+
+```java
+ class WordViewHolder extends RecyclerView.ViewHolder {
+        private TextView wordItemView;
+        private WordListAdapter adapter;
+        public WordViewHolder(ViewGroup itemView, WordListAdapter adapter) {
+            super(itemView);
+            wordItemView = (TextView) itemView.findViewById(R.id.word);
+            this.adapter = adapter;
+        }
+    }
+```
