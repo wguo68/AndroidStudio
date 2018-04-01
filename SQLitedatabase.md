@@ -35,4 +35,30 @@ public class WordListOpenHelper extends SQLiteOpenHelper {
 }
 
 ```
-2. 
+2. 修改WordListOpenHelper，添加数据到数据库
+```
+public void onCreate(SQLiteDatabase db) {
+        db.execSQL(WORD_LIST_TABLE_CREATE);
+        fillDatabaseWithData(db);
+    }
+```
+其中私有函数 fillDatabaseWithData(SQLiteDatabase db)
+```
+ private void fillDatabaseWithData(SQLiteDatabase db){
+        String[] words = {"Android", "Adapter", "ListView", "AsyncTask",
+                "Android Studio", "SQLiteDatabase", "SQLOpenHelper",
+                "Data model", "ViewHolder","Android Performance",
+                "OnClickListener"};
+
+        // Create a container for the data.
+        ContentValues values = new ContentValues();
+
+        //插入数据到数据路库
+        for (int i=0; i < words.length; i++) {
+         // Put column/value pairs into the container.
+        // put() overrides existing values.
+            values.put(KEY_WORD, words[i]);
+            db.insert(WORD_LIST_TABLE, null, values);
+        }
+    }
+```
