@@ -89,3 +89,33 @@ public class WordItem {
     }
 }
 
+4. 创建2个数据库变量，并添加query方法
+```
+    private SQLiteDatabase mWritableDB;
+    private SQLiteDatabase mReadableDB;
+
+   //...
+   
+   public WordItem query(int position) {
+        String query = "SELECT * FROM " + WORD_LIST_TABLE +
+                " ORDER BY " + KEY_WORD + " ASC " +
+                "LIMIT " + position + ",1";
+        Cursor cursor = null;
+        WordItem entry = new WordItem();
+        try {
+            if (mReadableDB == null) {
+                mReadableDB = getReadableDatabase();
+            }
+            cursor = mReadableDB.rawQuery(query, null);
+            cursor.moveToFirst();
+            entry.setId(cursor.getInt(cursor.getColumnIndex(KEY_ID)));
+            entry.setWord(cursor.getString(cursor.getColumnIndex(KEY_WORD)));
+        } catch (Exception e) {
+            Log.d(TAG, "QUERY EXCEPTION! " + e.getMessage());
+        } finally {
+            cursor.close();
+            return entry;
+        }
+    }
+```
+
