@@ -39,4 +39,19 @@ android:layout_height="match_parent">
 </android.support.design.widget.CoordinatorLayout>
 ```
 ** 3.为每个item创建布局文件** 
- 选择app/res/layout文件夹, 右键 New > Layout resource file,修改Layout为LineaLayout
+ 选择app/res/layout文件夹, 右键 New > Layout resource file,修改Layout为LineaLayout。添加TextView。结果如下
+ ```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="6dp">
+
+    <TextView
+        android:id="@+id/word"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="24sp"
+        android:textStyle="bold"/>
+</LinearLayout>
+ ```
