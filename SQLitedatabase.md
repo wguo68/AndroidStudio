@@ -118,5 +118,17 @@ public class WordItem {
             return entry;
         }
     }
+    
+    
+```
+```java
+  @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        Log.w(WordListOpenHelper.class.getName(),
+                "Upgrading database from version " + oldVersion + " to "
+                        + newVersion + ", which will destroy all old data");
+        db.execSQL("DROP TABLE IF EXISTS " + WORD_LIST_TABLE);
+        onCreate(db);
+    }
 ```
 
