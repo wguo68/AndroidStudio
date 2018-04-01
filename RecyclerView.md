@@ -187,3 +187,30 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
         }
     }
 ```
+## 三、通过FloatingActionButton按钮添加数据到RecycleView中
+1. 在布局中添加FloatingActionButton
+```
+<android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:src="@drawable/ic_android_black_24dp"/>
+```
+
+2. 添加onClick
+ 为FloatingActionButton添加onClick处理器
+```
+ FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int count = wordList.size();
+                wordList.addLast("+ Word " + count);
+                recyclerView.getAdapter().notifyItemInserted(count);
+                recyclerView.smoothScrollToPosition(count);
+            }
+        });
+```
