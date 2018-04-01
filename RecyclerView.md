@@ -59,3 +59,9 @@ android:layout_height="match_parent">
  **Create a style from the TextView attributes**
  鼠标定位在TextView，然后**Right-click >Refactor > Extract > Style.**
  勾选 the Launch **'Use Style Where Possible' box**.点击**OK**.
+ 
+```xml
+    <TextView
+        android:id="@+id/word"
+        style="@style/word_title" />
+```
