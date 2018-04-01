@@ -1,5 +1,7 @@
 
-### 创建数据集create dataSet
+我们见过在ScrollView中可以显示和操纵一列滚动的元素items，如联系人列表、播放列表、相册、字典、购物车、文章列表等。RecyclerView是一个更有效的显示滚动列表的View（也是ViewGroup的子类），不同于ScrollView为每个（即使不可见的）item创造单独的View.RecyclerView创造限定数量的View并重用这些view，从而提供效率，给用户更好的流畅的体验。
+
+### 一 创建数据集create dataSet
   ```java
     private final LinkedList<String> wordList = new LinkedList<>();
     private int count;
@@ -14,7 +16,26 @@
         }
     }
   ```
- ### 创建 RecycleView
+ ### 二 创建 RecycleView
+ 
+ 为了在RecycleView中显示数据，涉及下列几个部分：
+ 
+1）. **Data**: 可来自比如前面的仿真数据、文件、数据库、网络等
+    
+2) **一个RecyclerView**：滚动列表item的滚动视图
+    
+3) **每个item的Layout**：每个item元素如何显示
+    
+4) **一个layout manager**：用于如何布局所有元素，布局可以是vertical或horizontal,可以是a grid网格或瀑布流. 一共有3钟
+    
+5) **一个adapter**：是**data**和**RecyclerView**之间的桥梁,用于从data里得到数据，放到一个对应item的ViewGroup的容器ViewHolder中。
+    
+6) **一个ViewHolder**：位于adapter内部，用于存储对应一个item的Views.
+   
+   其机理可用下面的图示表示：
+```
+    Data-->Adapter(含有ViewHolder)-->RecycleView
+```
 
 ** 1. build.gradle (Module: app)添加2行**
 ``` java   
