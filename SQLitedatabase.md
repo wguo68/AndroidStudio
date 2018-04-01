@@ -133,3 +133,33 @@ public class WordItem {
 ```
 ### 4. Display data in the RecyclerView
 
+1.修改WordListAdapter
+
+修改构造函数和成员变量
+```
+  /*
+      private LinkedList<String> wordList;
+    public WordListAdapter(Context context, LinkedList<String> wordList) {
+        this.layoutInflater = LayoutInflater.from(context);
+        this.wordList = wordList;
+    }
+    */
+    WordListOpenHelper mDB;
+    public WordListAdapter(Context context, WordListOpenHelper db) {
+        mInflater = LayoutInflater.from(context);
+        mContext = context;
+        mDB = db;
+    }
+```
+修改
+```
+ @Override
+    public void onBindViewHolder(WordListAdapter.WordViewHolder holder, int position) {
+        WordItem current = mDB.query(position);
+        holder.wordItemView.setText(current.getWord());
+        /*
+        String current = wordList.get(position);
+        holder.wordItemView.setText(current);*/
+    }
+
+```
