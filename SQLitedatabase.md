@@ -64,30 +64,31 @@ public void onCreate(SQLiteDatabase db) {
 ```
 
 3. 创建WordItem类，用alt+insert生成getter和setter方法
-
+```
 public class WordItem {
-    private int mId;
-    private String mWord;
+    private int Id;
+    private String Word;
 
-    public int getmId() {
-        return mId;
+    public int getId() {
+        return Id;
     }
 
-    public String getmWord() {
-        return mWord;
+    public String getWord() {
+        return Word;
     }
 
-    public void setmId(int mId) {
-        this.mId = mId;
+    public void setId(int id) {
+        Id = id;
     }
 
-    public void setmWord(String mWord) {
-        this.mWord = mWord;
+    public void setWord(String word) {
+        Word = word;
     }
 
     public WordItem() {
     }
 }
+```
 
 4. 创建2个数据库变量，并添加query方法
 ```
