@@ -39,3 +39,4 @@ android:layout_height="match_parent">
 </android.support.design.widget.CoordinatorLayout>
 ```
 ** 3.为每个item创建布局文件** 
+ 选择app/res/layout文件夹, 右键 New > Layout resource file,修改Layout为LineaLayout
