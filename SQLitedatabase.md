@@ -62,23 +62,7 @@ public void onCreate(SQLiteDatabase db) {
         }
     }
 ```
-添加insert(String word)
-```
-public long insert(String word){
-        long newId = 0;
-        ContentValues values = new ContentValues();
-        values.put(KEY_WORD, word);
-        try {
-            if (mWritableDB == null) {
-                mWritableDB = getWritableDatabase();
-            }
-            newId = mWritableDB.insert(WORD_LIST_TABLE, null, values);
-        } catch (Exception e) {
-            Log.d(TAG, "INSERT EXCEPTION! " + e.getMessage());
-        }
-        return newId;
-    }
-```
+
 
 添加count()方法
 ```
@@ -211,4 +195,23 @@ protected void onCreate(Bundle savedInstanceState) {
         recyclerView.setAdapter( new WordListAdapter (this, mDB));
     
 }
+```
+
+## 5. 修改WordListOpenHelper，添加insert方法
+添加insert(String word)
+```
+public long insert(String word){
+        long newId = 0;
+        ContentValues values = new ContentValues();
+        values.put(KEY_WORD, word);
+        try {
+            if (mWritableDB == null) {
+                mWritableDB = getWritableDatabase();
+            }
+            newId = mWritableDB.insert(WORD_LIST_TABLE, null, values);
+        } catch (Exception e) {
+            Log.d(TAG, "INSERT EXCEPTION! " + e.getMessage());
+        }
+        return newId;
+    }
 ```
