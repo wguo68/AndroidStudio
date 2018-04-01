@@ -145,13 +145,15 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
 **5. 添加交互功能**
 修改WordViewHolder实现View.OnClickListener事件监听
 ```java
-class WordViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+ class WordViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView wordItemView;
         private WordListAdapter adapter;
         public WordViewHolder(ViewGroup itemView, WordListAdapter adapter) {
             super(itemView);
             wordItemView = (TextView) itemView.findViewById(R.id.word);
             this.adapter = adapter;
+
+            wordItemView.setOnClickListener(this); //设置监听器
         }
 
         @Override
