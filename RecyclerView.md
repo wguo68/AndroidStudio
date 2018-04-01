@@ -187,6 +187,8 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
         }
     }
 ```
+
+
 ## 三、通过FloatingActionButton按钮添加数据到RecycleView中
 1. 在布局中添加FloatingActionButton
 ```
@@ -213,4 +215,19 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
                 recyclerView.smoothScrollToPosition(count);
             }
         });
+```
+
+## 补充
+**为item添加Decoration**
+```
+       recyclerView.addItemDecoration(new MyItemDecoration());
+   ...
+   class MyItemDecoration extends RecyclerView.ItemDecoration {
+        @Override
+        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+            super.getItemOffsets(outRect, view, parent, state);
+            outRect.set(0, 0, 0, getResources().getDimensionPixelOffset(R.dimen.decoration_width));
+        }
+    }
+  }
 ```
