@@ -131,4 +131,5 @@ public class WordItem {
         onCreate(db);
     }
 ```
+### 4. Display data in the RecyclerView
 
