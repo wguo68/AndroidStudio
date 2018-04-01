@@ -163,3 +163,17 @@ public class WordItem {
     }
 
 ```
+修改MainActivity
+```
+private WordListOpenHelper mDB;
+protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+     
+        mDB = new WordListOpenHelper(this,"wordlist",null,1);
+        final RecyclerView recyclerView = findViewById(R.id.recyclerview);
+       // recyclerView.setAdapter(new WordListAdapter(this, wordList));
+        recyclerView.setAdapter( new WordListAdapter (this, mDB));
+    
+}
+```
