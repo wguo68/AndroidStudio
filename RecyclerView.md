@@ -68,19 +68,21 @@ android:layout_height="match_parent">
 
 3. 创建带有ViewHolder的Adapter. **New->class**并extends 自 RecyclerView.Adapter<WordListAdapter.WordViewHolder>
 ```java
-public class WordListAdapter extends
-RecyclerView.Adapter<WordListAdapter.WordViewHolder> {}
+public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordViewHolder>
+{
+}
 ```
 点击灯泡，选择**Implement methods**
 ```
-public class WordListAdapter extends RecyclerView.Adapter {
+public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordViewHolder> {
+
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public WordListAdapter.WordViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return null;
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(WordListAdapter.WordViewHolder holder, int position) {
 
     }
 
@@ -90,3 +92,4 @@ public class WordListAdapter extends RecyclerView.Adapter {
     }
 }
 ```
+将onCreateViewHolder和onBindViewHolder都引用WordViewHolder
