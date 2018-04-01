@@ -153,17 +153,15 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
             wordItemView = (TextView) itemView.findViewById(R.id.word);
             this.adapter = adapter;
 
-            wordItemView.setOnClickListener(this); //设置监听器
+            itemView.setOnClickListener(this); //设置监听器
         }
 
         @Override
         public void onClick(View v) {
             int pos = getLayoutPosition();//得到item的位置
             String itemWord = wordList.get(pos); //得到item的内容即文本
-            itemWord += " Clicked";//修改内容
-            wordItemView.setText(itemWord);
-
-            adapter.notifyDataSetChanged();//通知RecycleView修改了ViewHolder中的View的内容
+            wordList.set(pos, "Clicked " + itemWord);    //修改内容
+            adapter.notifyDataSetChanged();//通知RecycleView修改了内容
         }
     }
 ```
