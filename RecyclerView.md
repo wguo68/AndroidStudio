@@ -1,3 +1,4 @@
+# RecycleView 教程1
 
 我们见过在ScrollView中可以显示和操纵一列滚动的元素items，如联系人列表、播放列表、相册、字典、购物车、文章列表等。RecyclerView是一个更有效的显示滚动列表的View（也是ViewGroup的子类），不同于ScrollView为每个（即使不可见的）item创造单独的View.RecyclerView创造限定数量的View并重用这些view，从而提供效率，给用户更好的流畅的体验。
 
