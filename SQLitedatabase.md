@@ -62,3 +62,30 @@ public void onCreate(SQLiteDatabase db) {
         }
     }
 ```
+
+3. 创建WordItem类，用alt+insert生成getter和setter方法
+
+public class WordItem {
+    private int mId;
+    private String mWord;
+
+    public int getmId() {
+        return mId;
+    }
+
+    public String getmWord() {
+        return mWord;
+    }
+
+    public void setmId(int mId) {
+        this.mId = mId;
+    }
+
+    public void setmWord(String mWord) {
+        this.mWord = mWord;
+    }
+
+    public WordItem() {
+    }
+}
+
