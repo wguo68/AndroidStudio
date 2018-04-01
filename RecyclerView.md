@@ -107,3 +107,29 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
         }
     }
 ```
+
+**4. 为WordListAdapter添加constrctor并补充其他代码 **
+
+构造函数
+```java
+    private LinkedList<String> wordList;
+    private LayoutInflater layoutInflater;
+
+    public WordListAdapter(Context context, LinkedList<String> wordList) {
+        this.layoutInflater = LayoutInflater.from(context);
+        this.wordList = wordList;
+    }
+```
+```java
+ @Override
+    public void onBindViewHolder(WordListAdapter.WordViewHolder holder, int position) {
+
+        String current = wordList.get(position);
+        holder.wordItemView.setText(current);
+    }
+
+    @Override
+    public int getItemCount() {
+        return wordList.size();
+    }
+```
